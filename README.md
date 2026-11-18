@@ -21,11 +21,11 @@ There are two kinds of persona:
 
 ```mermaid
 flowchart TD
-    Course --> Module --> Material[Material / test]
-    Persona[Base persona] --> CC[Course capabilities]
-    CC -.optional.-> MC[Module capabilities]
-    MC -.optional.-> MatC[Material capabilities]
-    Material -. enable / disable .- Persona
+    Course --> Module --> Material["Material or test"]
+    Persona["Base persona"] --> CC["Course capabilities"]
+    CC -.->|optional| MC["Module capabilities"]
+    MC -.->|optional| MatC["Material capabilities"]
+    Persona -.->|"enable or disable"| Material
     Classroom --> Course
     Classroom --> Students
 ```
@@ -62,22 +62,22 @@ Built in phases:
 
 ```mermaid
 flowchart TD
-    MW[MirrorWise] --> T[Instructor portal]
-    MW --> L[Student portal]
-    T --> T1[Classrooms]
-    T --> T2[Personas]
-    T --> T3[Persona enable / disable per material]
-    L --> L1[Courses and tests]
-    L --> L2[Attempts and scoring]
-    L --> L3[Feedback]
-    L --> L4[Persona selection]
+    MW["MirrorWise"] --> T["Instructor portal"]
+    MW --> L["Student portal"]
+    T --> T1["Classrooms"]
+    T --> T2["Personas"]
+    T --> T3["Persona on/off per material"]
+    L --> L1["Courses and tests"]
+    L --> L2["Attempts and scoring"]
+    L --> L3["Feedback"]
+    L --> L4["Persona selection"]
 ```
 
 Student flow:
 
 ```mermaid
 flowchart LR
-    C[Course] --> T[Test] --> P{{Persona, if available}} --> A[Attempt] --> S[Scoring] --> F[Feedback]
+    C["Course"] --> T["Test"] --> P{{"Persona, if available"}} --> A["Attempt"] --> S["Scoring"] --> F["Feedback"]
 ```
 
 ## Documentation
